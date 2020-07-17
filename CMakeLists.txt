@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.10)
 
 project (addnum)
 
+IF(CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL aarch64)
+
 add_library(addnum STATIC src/add_num.cpp)
 target_include_directories( addnum 
     PUBLIC
@@ -17,6 +19,8 @@ install(TARGETS addnumapp
     LIBRARY DESTINATION "/home/"
     DESTINATION "/home/"
 )
+
+ENDIF()
 
 SET(CPACK_GENERATOR "DEB")
 SET(CPACK_SYSTEM_NAME "amd64")
